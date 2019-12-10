@@ -3,7 +3,7 @@ menu = ['1. Pobierz plik z internetu', '2. Zlicz liczbę liter w pobranym pliku'
         '6. Wygeneruj raport o użyciu liter (A-Z)', '7. Zapisz statystyki z punktów 2-5 do pliku statystyki.txt',
         '8. Wyjście z programu']
 isWorking = True
-
+status_code = 200
 text = list()
 
 #TODO add loop
