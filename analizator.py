@@ -7,4 +7,7 @@ isWorking = True
 status_code = 200
 text = list()
 
-
+#TODO 
+while (isWorking):
+    for element in menu:
+        print(element)
