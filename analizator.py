@@ -103,3 +103,5 @@ while (isWorking):
         print('Total punctations:   ', countPunctations(text))
     elif action == 5:
         print('Total sentences:    ', countSentences(text))
+    elif action == 6:
+        countLetters(text, True)
