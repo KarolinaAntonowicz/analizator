@@ -49,6 +49,10 @@ def countLetters(text, printing):
     return sum(x)
 
 def countWords(text):
+    global status_code
+    if status_code == 0:
+        print('error')
+        return 0
     for line in text:
         wordslist = line.split()
         words = len(wordslist)
