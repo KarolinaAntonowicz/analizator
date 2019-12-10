@@ -1,4 +1,5 @@
 import requests
+import os
 menu = ['1. Download the file from the internet', '2. Count the number of letters in the downloaded file',
         '3. Count the number of words in the file',
         '4. Count the number of punctuation marks in the file.', '5. Count the number of sentences in the file',
@@ -77,7 +78,7 @@ def countSentences(text):
     if status_code == 0:
         print('error')
         return 0
-    full_stops = 0    
+    full_stops = 0
     exclamation_mark = 0
     question_mark = 0
     ellipsis = 0
@@ -109,3 +110,12 @@ while (isWorking):
         plik = open('statystyki.txt', 'w')
         plik.write("2: %s\n3: %s \n4: %s \n5: %s" % (countLetters(text, False), countWords(text), countPunctations(text), countSentences(text)))
         plik.close()
+    elif action == 8:
+        g = input("Exit program and delete files? Type 'y' to proceed or any key to cancel\n")
+        if g == "y":
+            os.remove("statystyki.txt")
+            os.remove("6.txt" )
+            print("Files Removed!")
+            exit()
+        else:
+            print ('doing nothing')
