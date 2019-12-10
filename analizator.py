@@ -26,7 +26,10 @@ def download():
 
 text = download()
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8e4057ff4d6d0d0731cfd74aca7d2145ca047531
 def countLetters(text, printing):
     global status_code
     if status_code == 0:
@@ -42,6 +45,56 @@ def countLetters(text, printing):
             print(letter, ': ', x[i])
     # print(x)
     return sum(x)
+<<<<<<< HEAD
+=======
+
+def countWords(text):
+    for line in text:
+        wordslist = line.split()
+        words = len(wordslist)
+    return words
+
+def countPunctations(text):
+    global status_code
+    if status_code == 0:
+        print('error')
+        return 0
+    full_stops = 0
+    commas = 0
+    semicolon = 0
+    exclamation_mark = 0
+    question_mark = 0
+    dash = 0
+    colon = 0
+    ellipsis = 0
+    for line in text:
+        full_stops = full_stops + len(line.split('.'))
+        commas = commas + len(line.split(','))
+        semicolon = semicolon + len(line.split(';'))
+        exclamation_mark = exclamation_mark + len(line.split('!'))
+        question_mark = question_mark + len(line.split('?'))
+        dash = dash + len(line.split('-'))
+        colon = colon + len(line.split(':'))
+        ellipsis = ellipsis + len(line.split('...'))
+    return full_stops+commas+semicolon+exclamation_mark+question_mark+dash+colon+ellipsis
+
+def countSentences(text):
+    global status_code
+    if status_code == 0:
+        print('error')
+        return 0
+    full_stops = 0    
+    exclamation_mark = 0
+    question_mark = 0
+    ellipsis = 0
+    for line in text:
+        full_stops = full_stops + len(line.split('.'))
+        ellipsis = ellipsis + len(line.split('...'))
+        exclamation_mark = exclamation_mark + len(line.split('!'))
+        question_mark = question_mark + len(line.split('?'))
+    return full_stops+exclamation_mark+question_mark+ellipsis
+
+>>>>>>> 8e4057ff4d6d0d0731cfd74aca7d2145ca047531
 #TODO
 while (isWorking):
     for element in menu:
@@ -49,3 +102,11 @@ while (isWorking):
     action = int(input())
     if action == 1:
         text = download()
+    elif action == 2:
+        print('Total letters:   ', countLetters(text, False))
+    elif action == 3:
+        print('Total words:   ', countWords(text))
+    elif action == 4:
+        print('Total punctations:   ', countPunctations(text))
+    elif action == 5:
+        print('Total sentences:    ', countSentences(text))
