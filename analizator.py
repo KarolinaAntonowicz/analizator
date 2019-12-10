@@ -111,11 +111,8 @@ while (isWorking):
         plik.write("2: %s\n3: %s \n4: %s \n5: %s" % (countLetters(text, False), countWords(text), countPunctations(text), countSentences(text)))
         plik.close()
     elif action == 8:
-        g = input("Exit program and delete files? Type 'y' to proceed or any key to cancel\n")
-        if g == "y":
+        if(os.path.exists("statystyki.txt")):
             os.remove("statystyki.txt")
-            os.remove("6.txt" )
-            print("Files Removed!")
-            exit()
-        else:
-            print ('doing nothing')
+        if(os.path.exists("6.txt")):
+            os.remove("6.txt")
+        isWorking = False
