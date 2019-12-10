@@ -48,6 +48,29 @@ def countWords(text):
         words = len(wordslist)
     return words
 
+def countPunctations(text):
+    global status_code
+    if status_code == 0:
+        print('error')
+        return 0
+    full_stops = 0
+    commas = 0
+    semicolon = 0
+    exclamation_mark = 0
+    question_mark = 0
+    dash = 0
+    colon = 0
+    ellipsis = 0
+    for line in text:
+        full_stops = full_stops + len(line.split('.'))
+        commas = commas + len(line.split(','))
+        semicolon = semicolon + len(line.split(';'))
+        exclamation_mark = exclamation_mark + len(line.split('!'))
+        question_mark = question_mark + len(line.split('?'))
+        dash = dash + len(line.split('-'))
+        colon = colon + len(line.split(':'))
+        ellipsis = ellipsis + len(line.split('...'))
+    return full_stops+commas+semicolon+exclamation_mark+question_mark+dash+colon+ellipsis
 
 #TODO
 while (isWorking):
@@ -60,3 +83,5 @@ while (isWorking):
         print('Total letters:   ', countLetters(text, False))
     elif action == 3:
         print('Total words:   ', countWords(text))
+    elif action == 4:
+        print('Total punctations:   ', countPunctations(text))
