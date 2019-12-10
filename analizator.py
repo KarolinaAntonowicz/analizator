@@ -5,3 +5,8 @@ menu = ['1. Pobierz plik z internetu', '2. Zlicz liczbę liter w pobranym pliku'
 isWorking = True
 
 text = list()
+
+#TODO add loop
+while(isWorking):
+    for element in menu:
+        print(element)
