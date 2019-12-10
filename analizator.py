@@ -1,3 +1,4 @@
+import requests
 menu = ['1. Download the file from the internet', '2. Count the number of letters in the downloaded file',
         '3. Count the number of words in the file',
         '4. Count the number of punctuation marks in the file.', '5. Count the number of sentences in the file',
@@ -29,3 +30,6 @@ text = download()
 while (isWorking):
     for element in menu:
         print(element)
+    action = int(input())
+    if action == 1:
+        text = download()
