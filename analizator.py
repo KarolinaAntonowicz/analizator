@@ -26,7 +26,6 @@ def download():
 
 text = download()
 
-
 def countLetters(text, printing):
     global status_code
     if status_code == 0:
@@ -42,6 +41,8 @@ def countLetters(text, printing):
             print(letter, ': ', x[i])
     # print(x)
     return sum(x)
+
+
 #TODO
 while (isWorking):
     for element in menu:
@@ -49,3 +50,5 @@ while (isWorking):
     action = int(input())
     if action == 1:
         text = download()
+    elif action == 2:
+        print('Total letters:   ', countLetters(text, False))
