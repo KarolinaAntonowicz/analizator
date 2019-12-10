@@ -26,10 +26,6 @@ def download():
 
 text = download()
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 8e4057ff4d6d0d0731cfd74aca7d2145ca047531
 def countLetters(text, printing):
     global status_code
     if status_code == 0:
@@ -45,8 +41,6 @@ def countLetters(text, printing):
             print(letter, ': ', x[i])
     # print(x)
     return sum(x)
-<<<<<<< HEAD
-=======
 
 def countWords(text):
     for line in text:
@@ -94,7 +88,6 @@ def countSentences(text):
         question_mark = question_mark + len(line.split('?'))
     return full_stops+exclamation_mark+question_mark+ellipsis
 
->>>>>>> 8e4057ff4d6d0d0731cfd74aca7d2145ca047531
 #TODO
 while (isWorking):
     for element in menu:
@@ -110,3 +103,5 @@ while (isWorking):
         print('Total punctations:   ', countPunctations(text))
     elif action == 5:
         print('Total sentences:    ', countSentences(text))
+    elif action == 6:
+        countLetters(text, True)
