@@ -105,3 +105,7 @@ while (isWorking):
         print('Total sentences:    ', countSentences(text))
     elif action == 6:
         countLetters(text, True)
+    elif action == 7:
+        plik = open('statystyki.txt', 'w')
+        plik.write("2: %s\n3: %s \n4: %s \n5: %s" % (countLetters(text, False), countWords(text), countPunctations(text), countSentences(text)))
+        plik.close()
