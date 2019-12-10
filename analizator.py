@@ -10,8 +10,13 @@ status_code = 200
 text = list()
 
 def download():
+    global status_code
     url = 'https://s3.zylowski.net/public/input/6.txt'
     r = requests.get(url)
+    if r.status_code != 200:
+        print ("error")
+        status_code = 0
+        return 0
     filename = url.split('/')[-1]
     # writing file
     with open(filename, 'wb') as f:
