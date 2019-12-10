@@ -25,6 +25,22 @@ def download():
 
 text = download()
 
+
+def countLetters(text, printing):
+    global status_code
+    if status_code == 0:
+        print('error')
+        return 0
+    x = [None] * 26
+    for i, letter in enumerate('ABCDEFGHIJKLMNOPQRSTUVWXYZ'):
+        for line in text:
+            # print(line.count(letter))
+            x[i] = line.count(letter)
+            x[i] += line.count(letter.lower())
+        if printing == True:
+            print(letter, ': ', x[i])
+    # print(x)
+    return sum(x)
 #TODO
 while (isWorking):
     for element in menu:
