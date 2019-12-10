@@ -42,6 +42,12 @@ def countLetters(text, printing):
     # print(x)
     return sum(x)
 
+def countWords(text):
+    for line in text:
+        wordslist = line.split()
+        words = len(wordslist)
+    return words
+
 
 #TODO
 while (isWorking):
@@ -52,3 +58,5 @@ while (isWorking):
         text = download()
     elif action == 2:
         print('Total letters:   ', countLetters(text, False))
+    elif action == 3:
+        print('Total words:   ', countWords(text))
