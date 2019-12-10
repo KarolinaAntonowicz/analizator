@@ -7,7 +7,26 @@ isWorking = True
 status_code = 200
 text = list()
 
-#TODO 
+def download():
+    print('Download Starting...')
+    url = 'https://s3.zylowski.net/public/input/6.txt'
+    r = requests.get(url)
+    filename = url.split('/')[-1]
+    # writing file
+    with open(filename, 'wb') as f:
+        f.write(r.content)
+
+    # open file
+    file = open(filename, 'r')
+    text = list(file)
+    # text = file.read()
+    file.close()
+    return text
+
+
+text = download()
+
+#TODO
 while (isWorking):
     for element in menu:
         print(element)
