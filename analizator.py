@@ -6,7 +6,7 @@ menu = ['1. Choose input file', '2. Count the number of letters in the downloade
         '6. Generate a letter usage report (A-Z)', '7. Save the statistics from points 2-5 to a statystyki.txt file',
         '8. Exit the program']
 isWorking = True
-status_code = 200
+status_code = 0
 text = list()
 
 def download():
