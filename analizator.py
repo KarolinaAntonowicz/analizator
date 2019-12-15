@@ -121,7 +121,8 @@ while (isWorking):
     if action == 1:
         download()
     elif action == 2:
-        pass
+        letters = countLetters(text, False)
+        print('Total vowels:', letters[0], 'Total consonants:', letters[1])
     elif action == 3:
         print('Total words:   ', countWords(text))
     elif action == 4:
@@ -132,7 +133,7 @@ while (isWorking):
         countLetters(text, True)
     elif action == 7:
         plik = open('statystyki.txt', 'w')
-        plik.write("2: %s\n3: %s \n4: %s \n5: %s" % (countLetters(text, False), countWords(text), countPunctations(text), countSentences(text)))
+        plik.write("Vowels, consonants: %s\nWords: %s \nPunctations: %s \nSentences: %s" % (countLetters(text, False), countWords(text), countPunctations(text), countSentences(text)))
         plik.close()
     elif action == 8:
         if(os.path.exists("statystyki.txt")):
