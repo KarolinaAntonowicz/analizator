@@ -40,6 +40,7 @@ def download():
          file = open(filename, 'r')
          text = list(file)
          text = file.read()
+         
          return text
         
 
@@ -108,7 +109,7 @@ def countSentences(text):
         ellipsis = ellipsis + len(line.split('...'))
         exclamation_mark = exclamation_mark + len(line.split('!'))
         question_mark = question_mark + len(line.split('?'))
-    return full_stops+question_mark
+    return full_stops+exclamation_mark+question_mark+ellipsis
 
 #TODO
 while (isWorking):
