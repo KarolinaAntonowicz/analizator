@@ -133,7 +133,7 @@ while (isWorking):
         countLetters(text, True)
     elif action == 7:
         plik = open('statystyki.txt', 'w')
-        plik.write("Vowels, consonants: %s\nWords: %s \nPunctations: %s \nSentences: %s" % (countLetters(text, False), countWords(text), countPunctations(text), countSentences(text)))
+        plik.write("Vowels: %s\nConsonants: %s\nWords: %s \nPunctations: %s \nSentences: %s" % (letters[0], letters[1], countWords(text), countPunctations(text), countSentences(text)))
         plik.close()
     elif action == 8:
         if(os.path.exists("statystyki.txt")):
