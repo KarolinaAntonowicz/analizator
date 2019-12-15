@@ -125,7 +125,8 @@ while (isWorking):
     if action == 1:
         text = download()
     elif action == 2:
-        print('Total letters:   ', countLetters(text, False))
+        letters = countLetters(text, False)
+        print('Total vowels:', letters[0], 'Total consonants:', letters[1])
     elif action == 3:
         print('Total words:   ', countWords(text))
     elif action == 4:
