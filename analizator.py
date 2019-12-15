@@ -55,6 +55,9 @@ def countWords(text):
         return 0
     for line in text:
         wordslist = line.split()
+        for i, word in wordslist:
+            if len(word) == 1:
+                del wordslist[i]
         words = len(wordslist)
     return words
 
