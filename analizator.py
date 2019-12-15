@@ -23,7 +23,7 @@ def download():
             print ("error")
             status_code = 0
             return 0
-        else
+        else:
             status_code =200
         filename = url.split('/')[-1]
         # writing file
