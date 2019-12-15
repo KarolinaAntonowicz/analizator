@@ -127,13 +127,9 @@ def countSentences(text):
         print('error')
         return 0
     full_stops = 0
-    exclamation_mark = 0
     question_mark = 0
-    ellipsis = 0
     for line in text:
         full_stops = full_stops + len(line.split('.'))
-        ellipsis = ellipsis + len(line.split('...'))
-        exclamation_mark = exclamation_mark + len(line.split('!'))
         question_mark = question_mark + len(line.split('?'))
     return full_stops+question_mark
 
