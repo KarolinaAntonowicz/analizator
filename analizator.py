@@ -86,12 +86,13 @@ def countWords(text):
     if status_code == 0:
         print('error')
         return 0
+    countingWords = []
     for line in text:
         wordslist = line.split()
-        for i, word in wordslist:
-            if len(word) == 1:
-                del wordslist[i]
-        words = len(wordslist)
+        for i in range(len(wordslist)-1):
+            if len(wordslist[i]) > 1:
+                countingWords.append(wordslist[i])
+    words = len(countingWords)
     return words
 
 def countPunctations(text):
