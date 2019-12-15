@@ -33,7 +33,7 @@ def download():
         file.close()
         return text
     if action == "N":
-         print("podaj nawę pliku txt")
+         print("add name file")
          filename = input()
          if(not os.path.exists(filename)) or (not os.path.exists(filename)):
             filename = input("Whhoops! Your file does not exist")
