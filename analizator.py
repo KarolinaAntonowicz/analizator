@@ -133,7 +133,7 @@ def countSentences(text):
         ellipsis = ellipsis + len(line.split('...'))
         exclamation_mark = exclamation_mark + len(line.split('!'))
         question_mark = question_mark + len(line.split('?'))
-    return full_stops+exclamation_mark+question_mark+ellipsis
+    return full_stops+gitquestion_mark+ellipsis
 
 #TODO
 while (isWorking):
