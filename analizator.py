@@ -69,12 +69,10 @@ def countLetters(text, printing):
 
     for i, letter in enumerate('ABCDEFGHIJKLMNOPQRSTUVWXYZ'):
         for line in text:
-            # print(line.count(letter))
             x[i] = line.count(letter)
             x[i] += line.count(letter.lower())
         if printing == True:
             print(letter, ': ', x[i])
-    # print(x)
     return [sum(vowel), sum(consonant)]
 
 def countWords(text):
