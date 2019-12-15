@@ -12,10 +12,10 @@ text = list()
 def download():
     global status_code
     global text
-    print("download file from internet? [Y/N]")
+    print("Download file from internet?[Y/N]")
     action = (input())
     if action == "Y":
-        print("add the source")
+        print("Add the source")
         url = input()
         #url = 'https://s3.zylowski.net/public/input/6.txt'
         r = requests.get(url)
@@ -32,7 +32,6 @@ def download():
         # open file
         file = open(filename, 'r')
         text = list(file)
-        # text = file.read()
         file.close()
         return text
     if action == "N":
@@ -44,9 +43,6 @@ def download():
          file = open(filename, 'r')
          text = list(file)
          return text
-
-        
-
 
 def countLetters(text, printing):
     global status_code
@@ -63,13 +59,11 @@ def countLetters(text, printing):
 
     for i, letter in enumerate('AEIOU'):
         for line in text:
-            # print(line.count(letter))
             vowel[i] = line.count(letter)
             vowel[i] += line.count(letter.lower())
 
     for i, letter in enumerate('BCDFGHJKLMNPQRSTVWXYZ'):
         for line in text:
-            # print(line.count(letter))
             consonant[i] = line.count(letter)
             consonant[i] += line.count(letter.lower())
 
@@ -103,22 +97,10 @@ def countPunctations(text):
         print('error')
         return 0
     full_stops = 0
-    #commas = 0
-    #semicolon = 0
-    #exclamation_mark = 0
     question_mark = 0
-    #dash = 0
-    #colon = 0
-    #ellipsis = 0
     for line in text:
         full_stops = full_stops + len(line.split('.'))
-        #commas = commas + len(line.split(','))
-        #semicolon = semicolon + len(line.split(';'))
-        #exclamation_mark = exclamation_mark + len(line.split('!'))
         question_mark = question_mark + len(line.split('?'))
-        #dash = dash + len(line.split('-'))
-        #colon = colon + len(line.split(':'))
-        #ellipsis = ellipsis + len(line.split('...'))
     return full_stops+question_mark
 
 def countSentences(text):
