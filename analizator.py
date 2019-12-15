@@ -10,10 +10,11 @@ status_code = 200
 text = list()
 
 def download():
-    print("download file from internet?")  
+    global status_code
+    global text
+    print("download file from internet? [Y/N]")
     action = (input())
     if action == "Y":
-        global status_code
         print("add the source")
         url = input()
         #url = 'https://s3.zylowski.net/public/input/6.txt'
@@ -40,10 +41,7 @@ def download():
             return 0
          file = open(filename, 'r')
          text = list(file)
-         text = file.read()
-         
          return text
-        
 
 
 def countLetters(text, printing):
@@ -133,9 +131,8 @@ def countSentences(text):
         ellipsis = ellipsis + len(line.split('...'))
         exclamation_mark = exclamation_mark + len(line.split('!'))
         question_mark = question_mark + len(line.split('?'))
-    return full_stops+gitquestion_mark+ellipsis
+    return full_stops+question_mark+ellipsis
 
-#TODO
 while (isWorking):
     for element in menu:
         print(element)
