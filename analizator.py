@@ -1,6 +1,6 @@
 import requests
 import os
-menu = ['1. Download the file from the internet', '2. Count the number of letters in the downloaded file',
+menu = ['1. Wybierz plik wejsciowy', '2. Count the number of letters in the downloaded file',
         '3. Count the number of words in the file',
         '4. Count the number of punctuation marks in the file.', '5. Count the number of sentences in the file',
         '6. Generate a letter usage report (A-Z)', '7. Save the statistics from points 2-5 to a statystyki.txt file',
@@ -10,27 +10,40 @@ status_code = 200
 text = list()
 
 def download():
-    global status_code
-    url = 'https://s3.zylowski.net/public/input/6.txt'
-    r = requests.get(url)
-    if r.status_code != 200:
-        print ("error")
-        status_code = 0
-        return 0
-    filename = url.split('/')[-1]
-    # writing file
-    with open(filename, 'wb') as f:
-        f.write(r.content)
+    print("czy pobrać plik z internetu")  
+    action = (input())
+    if action == "Y":
+        global status_code
+        print("podaj adres źródłowy pliku")
+        url = input()
+        #url = 'https://s3.zylowski.net/public/input/6.txt'
+        r = requests.get(url)
+        if r.status_code != 200:
+            print ("error")
+            status_code = 0
+            return 0
+        filename = url.split('/')[-1]
+        # writing file
+        with open(filename, 'wb') as f:
+            f.write(r.content)
+        # open file
+        file = open(filename, 'r')
+        text = list(file)
+        # text = file.read()
+        file.close()
+        return text
+    if action == "N":
+         print("podaj nawę pliku txt")
+         filename = input()
+         while (not os.path.exists(filename)) or (not os.path.exists(filename)):
+            filename = input("Whhoops!")
+         file = open(filename, 'r')
+         text = list(file)
+         text = file.read()
+         
+         return text
+        
 
-    # open file
-    file = open(filename, 'r')
-    text = list(file)
-    # text = file.read()
-    file.close()
-    return text
-
-
-text = download()
 
 def countLetters(text, printing):
     global status_code
@@ -104,7 +117,7 @@ while (isWorking):
         print(element)
     action = int(input())
     if action == 1:
-        text = download()
+        download()
     elif action == 2:
         print('Total letters:   ', countLetters(text, False))
     elif action == 3:
