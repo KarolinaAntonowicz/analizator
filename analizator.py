@@ -52,6 +52,25 @@ def countLetters(text, printing):
         print('error')
         return 0
     x = [None] * 26
+    vowel = [None] * 5
+    consonant = [None] * 21
+    #vowel is
+    #AEIOU
+    #consonant is
+    #BCDFGHJKLMNPQRSTVWXYZ
+
+    for i, letter in enumerate('AEIOU'):
+        for line in text:
+            # print(line.count(letter))
+            vowel[i] = line.count(letter)
+            vowel[i] += line.count(letter.lower())
+
+    for i, letter in enumerate('BCDFGHJKLMNPQRSTVWXYZ'):
+        for line in text:
+            # print(line.count(letter))
+            consonant[i] = line.count(letter)
+            consonant[i] += line.count(letter.lower())
+
     for i, letter in enumerate('ABCDEFGHIJKLMNOPQRSTUVWXYZ'):
         for line in text:
             # print(line.count(letter))
@@ -60,7 +79,7 @@ def countLetters(text, printing):
         if printing == True:
             print(letter, ': ', x[i])
     # print(x)
-    return sum(x)
+    return [sum(vowel), sum(consonant)]
 
 def countWords(text):
     global status_code
@@ -69,6 +88,9 @@ def countWords(text):
         return 0
     for line in text:
         wordslist = line.split()
+        for i, word in wordslist:
+            if len(word) == 1:
+                del wordslist[i]
         words = len(wordslist)
     return words
 
@@ -120,7 +142,7 @@ while (isWorking):
     if action == 1:
         download()
     elif action == 2:
-        print('Total letters:   ', countLetters(text, False))
+        pass
     elif action == 3:
         print('Total words:   ', countWords(text))
     elif action == 4:
