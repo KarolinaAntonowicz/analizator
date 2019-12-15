@@ -64,23 +64,23 @@ def countPunctations(text):
         print('error')
         return 0
     full_stops = 0
-    commas = 0
-    semicolon = 0
-    exclamation_mark = 0
+    #commas = 0
+    #semicolon = 0
+    #exclamation_mark = 0
     question_mark = 0
-    dash = 0
-    colon = 0
-    ellipsis = 0
+    #dash = 0
+    #colon = 0
+    #ellipsis = 0
     for line in text:
         full_stops = full_stops + len(line.split('.'))
-        commas = commas + len(line.split(','))
-        semicolon = semicolon + len(line.split(';'))
-        exclamation_mark = exclamation_mark + len(line.split('!'))
+        #commas = commas + len(line.split(','))
+        #semicolon = semicolon + len(line.split(';'))
+        #exclamation_mark = exclamation_mark + len(line.split('!'))
         question_mark = question_mark + len(line.split('?'))
-        dash = dash + len(line.split('-'))
-        colon = colon + len(line.split(':'))
-        ellipsis = ellipsis + len(line.split('...'))
-    return full_stops+commas+semicolon+exclamation_mark+question_mark+dash+colon+ellipsis
+        #dash = dash + len(line.split('-'))
+        #colon = colon + len(line.split(':'))
+        #ellipsis = ellipsis + len(line.split('...'))
+    return full_stops+question_mark
 
 def countSentences(text):
     global status_code
