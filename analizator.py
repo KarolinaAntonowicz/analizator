@@ -6,15 +6,16 @@ menu = ['1. Choose input file', '2. Count the number of letters in the downloade
         '6. Generate a letter usage report (A-Z)', '7. Save the statistics from points 2-5 to a statystyki.txt file',
         '8. Exit the program']
 isWorking = True
-status_code = 200
+status_code = 0
 text = list()
 
 def download():
-    print("download file from internet?")  
+    global status_code
+    global text
+    print("Download file from internet?[Y/N]")
     action = (input())
     if action == "Y":
-        global status_code
-        print("add the source")
+        print("Add the source")
         url = input()
         #url = 'https://s3.zylowski.net/public/input/6.txt'
         r = requests.get(url)
@@ -22,6 +23,8 @@ def download():
             print ("error")
             status_code = 0
             return 0
+        else:
+            status_code =200
         filename = url.split('/')[-1]
         # writing file
         with open(filename, 'wb') as f:
@@ -29,7 +32,6 @@ def download():
         # open file
         file = open(filename, 'r')
         text = list(file)
-        # text = file.read()
         file.close()
         return text
     if action == "N":
@@ -40,11 +42,7 @@ def download():
             return 0
          file = open(filename, 'r')
          text = list(file)
-         text = file.read()
-         
          return text
-        
-
 
 def countLetters(text, printing):
     global status_code
@@ -61,24 +59,20 @@ def countLetters(text, printing):
 
     for i, letter in enumerate('AEIOU'):
         for line in text:
-            # print(line.count(letter))
             vowel[i] = line.count(letter)
             vowel[i] += line.count(letter.lower())
 
     for i, letter in enumerate('BCDFGHJKLMNPQRSTVWXYZ'):
         for line in text:
-            # print(line.count(letter))
             consonant[i] = line.count(letter)
             consonant[i] += line.count(letter.lower())
 
     for i, letter in enumerate('ABCDEFGHIJKLMNOPQRSTUVWXYZ'):
         for line in text:
-            # print(line.count(letter))
             x[i] = line.count(letter)
             x[i] += line.count(letter.lower())
         if printing == True:
             print(letter, ': ', x[i])
-    # print(x)
     return [sum(vowel), sum(consonant)]
 
 def countWords(text):
@@ -101,22 +95,10 @@ def countPunctations(text):
         print('error')
         return 0
     full_stops = 0
-    #commas = 0
-    #semicolon = 0
-    #exclamation_mark = 0
     question_mark = 0
-    #dash = 0
-    #colon = 0
-    #ellipsis = 0
     for line in text:
         full_stops = full_stops + len(line.split('.'))
-        #commas = commas + len(line.split(','))
-        #semicolon = semicolon + len(line.split(';'))
-        #exclamation_mark = exclamation_mark + len(line.split('!'))
         question_mark = question_mark + len(line.split('?'))
-        #dash = dash + len(line.split('-'))
-        #colon = colon + len(line.split(':'))
-        #ellipsis = ellipsis + len(line.split('...'))
     return full_stops+question_mark
 
 def countSentences(text):
@@ -125,17 +107,13 @@ def countSentences(text):
         print('error')
         return 0
     full_stops = 0
-    exclamation_mark = 0
     question_mark = 0
-    ellipsis = 0
     for line in text:
         full_stops = full_stops + len(line.split('.'))
-        ellipsis = ellipsis + len(line.split('...'))
-        exclamation_mark = exclamation_mark + len(line.split('!'))
         question_mark = question_mark + len(line.split('?'))
-    return full_stops+gitquestion_mark+ellipsis
+    return full_stops+question_mark
 
-#TODO
+
 while (isWorking):
     for element in menu:
         print(element)
