@@ -128,7 +128,7 @@ while (isWorking):
     if action == 1:
         text = download()
     elif action == 2:
-        
+        pass
     elif action == 3:
         print('Total words:   ', countWords(text))
     elif action == 4:
